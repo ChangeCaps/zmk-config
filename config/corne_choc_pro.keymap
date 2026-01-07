@@ -14,6 +14,24 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_gui_number {
+            bindings = <&macro_gui_number>;
+            key-positions = <40 44>;
+        };
+    };
+
+    macros {
+        macro_gui_number: macro_gui_number {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI &mo 1>;
+            label = "MACRO_GUI_NUMBER";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
