@@ -17,11 +17,18 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        tap_gui_lower: tap_gui_lower {
+        tap_lower_gui: tap_lower_gui {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_GUI_LOWER";
+            label = "TAP_LOWER_GUI";
             #binding-cells = <0>;
             bindings = <&mo 1>, <&kp LEFT_GUI>;
+        };
+
+        tap_raise_gui: tap_raise_gui {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_RAISE_GUI";
+            #binding-cells = <0>;
+            bindings = <&mo 2>, <&kp LEFT_GUI>;
         };
     };
 
@@ -38,10 +45,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E             &kp R           &kp T      &kp C_MUTE  &kp C_PP  &kp Y    &kp U  &kp I         &kp O    &kp P     &kp BSPC
-&kp ESC    &kp A  &kp S  &kp D             &kp F           &kp G      &kp LALT    &kp RALT  &kp H    &kp J  &kp K         &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C             &kp V           &kp B                            &kp N    &kp M  &kp COMMA     &kp DOT  &kp FSLH  &kp LEFT_CONTROL
-                         &kp LEFT_CONTROL  &tap_gui_lower  &kp SPACE                        &kp RET  &mo 2  &kp LEFT_ALT
+&kp TAB    &kp Q  &kp W  &kp E             &kp R           &kp T      &kp C_MUTE  &kp C_PP  &kp Y    &kp U           &kp I         &kp O    &kp P     &kp BSPC
+&kp ESC    &kp A  &kp S  &kp D             &kp F           &kp G      &kp LALT    &kp RALT  &kp H    &kp J           &kp K         &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C             &kp V           &kp B                            &kp N    &kp M           &kp COMMA     &kp DOT  &kp FSLH  &kp LEFT_CONTROL
+                         &kp LEFT_CONTROL  &tap_lower_gui  &kp SPACE                        &kp RET  &tap_raise_gui  &kp LEFT_ALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
